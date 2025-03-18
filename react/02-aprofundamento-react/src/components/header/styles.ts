@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -24,11 +24,11 @@ export const HeaderContainer = styled.header`
       transition: color, border .3s;
 
       &:hover {
-        border-bottom: 3px solid ${props => props.theme["blue-500"]};
+        border-bottom: 3px solid ${props => props.theme['blue-500']};
       }
 
       &.active {
-        color: ${props => props.theme["blue-500"]};
+        color: ${props => props.theme['blue-500']};
       }
     }
   }

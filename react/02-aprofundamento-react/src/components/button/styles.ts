@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const Button = styled.button`
+interface ButtonVariant {
+  variant?: 'blue' | 'red'
+}
+
+export const Button = styled.button<ButtonVariant>`
   width: 100%;
   border: none;
   display: flex;
@@ -12,11 +16,11 @@ export const Button = styled.button`
   font-weight: bold;
   cursor: pointer;
 
-  background-color: ${props => props.theme["blue-500"]};
-  color: ${props => props.theme["gray-100"]};
+  background-color: ${props => props.variant === 'red' ? props.theme['red-500'] : props.theme['blue-500']};
+  color: ${props => props.theme['gray-100']};
 
   &:not(:disabled):hover {
-    background-color: ${props => props.theme["blue-700"]};
+    background-color: ${props => props.variant === 'red' ? props.theme['red-700'] : props.theme['blue-700']};
   }
 
   &:disabled {
