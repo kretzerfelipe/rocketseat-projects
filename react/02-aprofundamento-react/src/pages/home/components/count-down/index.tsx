@@ -1,7 +1,7 @@
 import { differenceInSeconds as calculateDifferenceInSeconds } from 'date-fns'
 import { useContext, useEffect } from 'react'
 import { ContdownContainer, Separator } from './styles'
-import { CyclesContext } from '../..'
+import { CyclesContext } from '../../../../contexts/cycles-context'
 
 
 export function CountDown() {
@@ -20,9 +20,9 @@ export function CountDown() {
     let interval: number
 
     if (activeCycle) {
-      const differenceInSeconds = calculateDifferenceInSeconds(new Date(), activeCycle.startDate)
-
       interval = setInterval(() => {
+        const differenceInSeconds = calculateDifferenceInSeconds(new Date(), activeCycle.startDate)
+      
         if (differenceInSeconds >= totalSeconds) {
           setCurrentCycleAsFinished()
 
@@ -45,7 +45,7 @@ export function CountDown() {
       ? `${activeCycle.task} - ${minutes}:${seconds}`
       : 'Pomodoro Kresaut'
   }, [minutes, seconds, activeCycle])
-
+  
   return (
     <ContdownContainer>
       <span>{minutes[0]}</span>
