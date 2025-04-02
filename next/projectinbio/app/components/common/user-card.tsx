@@ -17,7 +17,7 @@ export function UserCard() {
         <img
           src='https://github.com/kretzerfelipe.png'
           alt='Felipe Dev'
-          className='object-cover h-full w-full rounded-full'
+          className='h-full w-full rounded-full object-cover'
         />
       </div>
       <div className='flex w-full flex-col gap-2'>
@@ -37,13 +37,13 @@ export function UserCard() {
             </Button>
           ))}
         </div>
-        <div className='flex h-43 w-full flex-col gap-3'>
-          <div className='flex w-full flex-col items-center gap-3'>
-            <Button className='w-full'>Template Sass - Compre Agora</Button>
-            <Button className='bg-[#1e1e1e] hover:bg-[#2e2e2e]'>
-              <Plus />
-            </Button>
-          </div>
+      </div>
+      <div className='flex h-43 w-full flex-col gap-3'>
+        <div className='flex w-full flex-col items-center gap-3'>
+          <Button className='w-full'>Template Sass - Compre Agora</Button>
+          <Button className='bg-[#1e1e1e] hover:bg-[#2e2e2e]'>
+            <Plus />
+          </Button>
         </div>
       </div>
     </div>

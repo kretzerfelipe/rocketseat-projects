@@ -1,12 +1,14 @@
+import { ProjectCard } from '../common/project-card'
+import { TotalVisits } from '../common/total-visits'
 import { UserCard } from '../common/user-card'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 
 export function Hero() {
   return (
-    <div className='flex h-screen'>
-      <div className='mt-[35vh] flex w-full flex-col gap-2'>
-        <h1 className='text-5xl leading-16 font-bold text-white'>
+    <div className='flex min-h-[80vh]'>
+      <div className='mt-[25vh] flex w-full flex-col gap-2'>
+        <h1 className='text-content-body w-11/12 text-5xl leading-16 font-bold'>
           Seus projetos e redes sociais em um único link
         </h1>
         <h2 className='text-xl leading-6'>
@@ -21,16 +23,16 @@ export function Hero() {
         </div>
       </div>
       <div className='flex w-full items-center justify-center bg-[radial-gradient(circle_at_50%_50%,var(--accent-purple),transparent_55%)]'>
-        <div className='relative'>
+        <div className='relative flex justify-center'>
           <UserCard />
-          <div className='absolute -right-[45%] -bottom-[7%]'>
-            {/* <TotalVisits /> */}
+          <div className='absolute lg:-right-[45%] -bottom-[7%]'>
+            <TotalVisits />
           </div>
           <div className='absolute top-[20%] -left-[45%] -z-10'>
-            {/* <ProjectCard /> */}
+            <ProjectCard />
           </div>
           <div className='absolute -top-[5%] -left-[55%] -z-10'>
-            {/* <ProjectCard /> */}
+            <ProjectCard />
           </div>
         </div>
       </div>
