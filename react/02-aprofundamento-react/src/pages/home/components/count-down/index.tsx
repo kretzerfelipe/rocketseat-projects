@@ -3,9 +3,14 @@ import { useContext, useEffect } from 'react'
 import { ContdownContainer, Separator } from './styles'
 import { CyclesContext } from '../../../../contexts/cycles-context'
 
-
 export function CountDown() {
-  const { activeCycle, activeCycleId, setCurrentCycleAsFinished, amountSecondsPassed, handleAmountSecondsPassed } = useContext(CyclesContext)
+  const {
+    activeCycle,
+    activeCycleId,
+    setCurrentCycleAsFinished,
+    amountSecondsPassed,
+    handleAmountSecondsPassed
+  } = useContext(CyclesContext)
 
   const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
   const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
@@ -21,8 +26,11 @@ export function CountDown() {
 
     if (activeCycle) {
       interval = setInterval(() => {
-        const differenceInSeconds = calculateDifferenceInSeconds(new Date(), activeCycle.startDate)
-      
+        const differenceInSeconds = calculateDifferenceInSeconds(
+          new Date(),
+          new Date(activeCycle.startDate)
+        )
+
         if (differenceInSeconds >= totalSeconds) {
           setCurrentCycleAsFinished()
 
@@ -45,7 +53,7 @@ export function CountDown() {
       ? `${activeCycle.task} - ${minutes}:${seconds}`
       : 'Pomodoro Kresaut'
   }, [minutes, seconds, activeCycle])
-  
+
   return (
     <ContdownContainer>
       <span>{minutes[0]}</span>
