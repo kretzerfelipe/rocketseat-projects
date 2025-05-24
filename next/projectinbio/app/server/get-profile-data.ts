@@ -1,14 +1,39 @@
-import 'server-only';
-import { db } from '../lib/firebase';
+import 'server-only'
+import { db } from '../lib/firebase'
 
 export type ProfileData = {
-  userId: string;
-  totalVisits: number;
-  createdAt: number;
+  userId: string
+  totalVisits: number
+  createdAt: number
 }
 
-export async function getProfileData(link: string) {
-  const snapshot = await db.collection('profiles').doc(link).get()
+export type ProjectData = {
+  id: string
+  userId: string
+  projectName: string
+  projectDescription: string
+  projectUrl: string
+  projectImagePath: string
+  createdAt: number
+  totalVisits?: number
+}
+
+export async function getProfileData(profileName: string) {
+  if (!profileName || profileName.trim() === '') {
+    throw new Error('Profile name cannot be empty')
+  }
+
+  const snapshot = await db.collection('profiles').doc(profileName).get()
 
   return snapshot.data() as ProfileData
+}
+
+export async function getProfileProjects(profileId: string) {
+  const snapshot = await db
+    .collection('projects')
+    .doc(profileId)
+    .collection('projects')
+    .get()
+
+  return snapshot.docs.map(doc => doc.data() as ProjectData)
 }
